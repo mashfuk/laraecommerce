@@ -21,67 +21,14 @@
     <body>
         <div class="container-scroller">
             <!-- partial:partials/_navbar.html -->
-            <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-                <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-                    <a class="navbar-brand brand-logo" href="{{route('admin')}}"><img src="{{asset('images/logo.svg')}}" alt="logo"/></a>
-                    <a class="navbar-brand brand-logo-mini" href="{{route('admin')}}"><img src="{{asset('images/logo-mini.svg')}}" alt="logo"/></a>
-                </div>
-                <div class="navbar-menu-wrapper d-flex align-items-center">
-                    <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="mdi mdi-image-filter"></i>Gallery</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a href="#" class="nav-link"><i class="mdi mdi-email-outline"></i>Inbox</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="mdi mdi-calendar"></i>Calendar</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav navbar-nav-right">
-                        
-                        
-                        <li class="nav-item d-none d-lg-block">
-                            <a class="nav-link" href="#">
-                                <img class="img-xs rounded-circle" src="/images/faces/face4.jpg" alt="">
-                            </a>
-                        </li>
-                    </ul>
-                    <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-                        <span class="icon-menu"></span>
-                    </button>
-                </div>
-            </nav>
+
+            @include('backend.partials.nav')
             <!-- partial -->
             <div class="container-fluid page-body-wrapper">
                 <!-- partial:partials/_sidebar.html -->
-                <nav class="sidebar sidebar-offcanvas" id="sidebar">
-                    <ul class="nav">
-                        <li class="nav-item nav-profile">
-                            <div class="nav-link">
-                                <div class="profile-image"> <img src="/images/faces/face4.jpg" alt="image"/> <span class="online-status online"></span> </div>
-                                <div class="profile-name">
-                                    <p class="name">Richard V.Welsh</p>
-                                    <p class="designation">Manager</p>
-                                    <div class="badge badge-teal mx-auto mt-3">Online</div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="{{route('admin')}}"><img class="menu-icon" src="/images/menu_icons/01.png" alt="menu icon"><span class="menu-title">Dashboard</span></a></li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="collapse" href="#general-pages" aria-expanded="false" aria-controls="general-pages"> <img class="menu-icon" src="/images/menu_icons/08.png" alt="menu icon"> <span class="menu-title">Manage Products</span><i class="menu-arrow"></i></a>
-                            <div class="collapse" id="general-pages">
-                                <ul class="nav flex-column sub-menu">
-                                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.products')}}">Products</a></li>
-                                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.product.create')}}">Create Products</a></li>
-                                </ul>
-                            </div>
-                        </li>
-    
-                    </ul>
-                </nav>
+                @include('backend.partials.left_sidebar')
                 <!-- partial -->
-                
+
                 @yield('content')
 
                 <!-- main-panel ends -->

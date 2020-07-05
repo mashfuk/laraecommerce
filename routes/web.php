@@ -43,5 +43,19 @@ Route::post('/delete/{id}', 'Backend\ProductsController@delete')->name('admin.pr
 
 });
 
+//Product Routes
+Route::group(['prefix' => '/categories'], function(){
+    
+
+Route::get('/', 'Backend\CategoriesController@index')->name('admin.categories');
+Route::get('/create', 'Backend\CategoriesController@create')->name('admin.category.create');
+Route::get('/edit/{id}', 'Backend\CategoriesController@edit')->name('admin.category.edit');
+Route::post('/create', 'Backend\CategoriesController@store')->name('admin.category.store');
+Route::post('/edit/{id}', 'Backend\CategoriesController@update')->name('admin.category.update');
+Route::post('/delete/{id}', 'Backend\CategoriesController@delete')->name('admin.category.delete');
+
+
+});
+
 });
 
