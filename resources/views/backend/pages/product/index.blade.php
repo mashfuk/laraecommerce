@@ -1,4 +1,4 @@
-@extends('admin.layouts.master')
+@extends('backend.layouts.master')
 
 @section('content')
 <div class="main-panel">
@@ -8,7 +8,7 @@
             <div class="card-header">
                 Manage Product
             </div>
-            @include('admin.partials.messages')
+            @include('backend.partials.messages')
             <div class="card-body">
                 <table class="table table-hover table-striped">
                     <tr>

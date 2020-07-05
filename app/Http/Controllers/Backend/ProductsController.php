@@ -1,37 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Backend;
 
-use Illuminate\Http\Request;
-use App\Product;
-use App\ProductImage;
+use App\Models\Product;
+use App\Models\ProductImage;
 use Image;
+use Illuminate\Http\Request;
 
-class AdminPagesController extends Controller {
+use App\Http\Controllers\Controller;
+
+
+class ProductsController extends Controller {
 
     //
 
     public function index() {
-        return view('admin.pages.index');
-    }
-
-    public function product_create() {
-        return view('admin.pages.product.create');
-    }
-    
-    public function manage_products()
-    {
         $products = Product::orderBy('id', 'desc')->get();
-        return view('admin.pages.product.index')->with('products', $products);
-    }
-    
-    public function product_edit($id)
-    {
-        $product = Product::find($id);
-        return view('admin.pages.product.edit')->with('product', $product);
+        return view('backend.pages.product.index')->with('products', $products);
     }
 
-    public function product_store(Request $request) {
+    public function create() {
+        return view('backend.pages.product.create');
+    }
+
+    public function edit($id) {
+        $product = Product::find($id);
+        return view('backend.pages.product.edit')->with('product', $product);
+    }
+
+    public function store(Request $request) {
 
 
         $request->validate([
@@ -74,12 +71,12 @@ class AdminPagesController extends Controller {
         return redirect()->route('admin.product.create');
     }
 
-     public function product_update(Request $request, $id) {
-         
-          $request->validate([
-            'title'         => 'required|max:150',
-            'price'             => 'required|numeric',
-            'quantity'             => 'required|numeric',
+    public function update(Request $request, $id) {
+
+        $request->validate([
+            'title' => 'required|max:150',
+            'price' => 'required|numeric',
+            'quantity' => 'required|numeric',
         ]);
 
         $product = Product::find($id);
@@ -92,4 +89,24 @@ class AdminPagesController extends Controller {
 
         return redirect()->route('admin.products');
     }
+
+    public function delete($id) {
+        $product = Product::find($id);
+        if (!is_null($product)) {
+            $product->delete();
+        }
+        // Delete all images
+        foreach ($product->images as $img) {
+            // Delete from path
+            $file_name = $img->image;
+            if (file_exists("images/products/" . $file_name)) {
+                unlink("images/products/" . $file_name);
+            }
+
+            $img->delete();
+        }
+        session()->flash('success', 'Product has deleted successfully !!');
+        return back();
+    }
+
 }

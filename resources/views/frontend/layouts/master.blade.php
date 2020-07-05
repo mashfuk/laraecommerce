@@ -14,11 +14,11 @@
 
 
 
-            @include('partials.nav')
+            @include('frontend.partials.nav')
 
             @yield('content')
 
-            @include('partials.footer')
+            @include('frontend.partials.footer')
            
 
         </div>
