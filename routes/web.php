@@ -17,7 +17,7 @@ Route::get('/contact', 'Frontend\PagesController@contact')->name('contact');
 
 
 Route::get('/products', 'Frontend\ProductsController@index')->name('products');
-Route::get('/products/{slug}', 'Frontend\PagesController@show')->name('products.show');
+Route::get('/products/{slug}', 'Frontend\ProductsController@show')->name('products.show');
 
 
 

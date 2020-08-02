@@ -21,73 +21,8 @@
 
                 <div class="widget">
                     <h3>Feature Products</h3>
-                    <div class="row">
-                        <div class="col-md-3 margin-top-20">
-                            <div class="card" >
-                                <img class="card-img-top feature-image" src="{{asset('images/products/'.'iphone.png')}}" alt="Card image">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone</h4>
-                                    <p class="card-text">10000 Taka</p>
-                                    <a href="#" class="btn btn-outline-warning">Add To Cart</a>
-                                </div>
-                            </div>   
-                        </div>
-
-                        <div class="col-md-3 margin-top-20">
-                            <div class="card" >
-                                <img class="card-img-top feature-image" src="{{asset('images/products/'.'iphone.png')}}" alt="Card image">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone</h4>
-                                    <p class="card-text">10000 Taka</p>
-                                    <a href="#" class="btn btn-outline-warning">Add To Cart</a>
-                                </div>
-                            </div>   
-                        </div>
-
-                        <div class="col-md-3 margin-top-20">
-                            <div class="card" >
-                                <img class="card-img-top feature-image" src="{{asset('images/products/'.'iphone.png')}}" alt="Card image">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone</h4>
-                                    <p class="card-text">10000 Taka</p>
-                                    <a href="#" class="btn btn-outline-warning">Add To Cart</a>
-                                </div>
-                            </div>   
-                        </div>
-
-                        <div class="col-md-3 margin-top-20">
-                            <div class="card" >
-                                <img class="card-img-top feature-image" src="{{asset('images/products/'.'iphone.png')}}" alt="Card image">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone</h4>
-                                    <p class="card-text">10000 Taka</p>
-                                    <a href="#" class="btn btn-outline-warning">Add To Cart</a>
-                                </div>
-                            </div>   
-                        </div>
-
-                        <div class="col-md-3 margin-top-20">
-                            <div class="card" >
-                                <img class="card-img-top feature-image" src="{{asset('images/products/'.'iphone.png')}}" alt="Card image">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone</h4>
-                                    <p class="card-text">10000 Taka</p>
-                                    <a href="#" class="btn btn-outline-warning">Add To Cart</a>
-                                </div>
-                            </div>   
-                        </div>
-
-                        <div class="col-md-3 margin-top-20">
-                            <div class="card" >
-                                <img class="card-img-top feature-image" src="{{asset('images/products/'.'iphone.png')}}" alt="Card image">
-                                <div class="card-body">
-                                    <h4 class="card-title">Iphone</h4>
-                                    <p class="card-text">10000 Taka</p>
-                                    <a href="#" class="btn btn-outline-warning">Add To Cart</a>
-                                </div>
-                            </div>   
-                        </div>
-                    </div>
+                    
+                    @include('frontend.pages.product.partials.all_products')
 
                 </div>
 
