@@ -26,10 +26,9 @@ class ProductsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($slug) {
-        //
-        $products = Product::where('slug', $slug)->first();
-        if (!is_null($products)) {
-            return view('frontend.pages.product.show', compact('products'));
+        $product = Product::where('slug', $slug)->first();
+        if (!is_null($product)) {
+            return view('frontend.pages.product.show', compact('product'));
         } else {
             session()->flash('errors', 'Sorry !! There is no product by this URL..');
             return redirect()->route('products');

@@ -14,7 +14,7 @@ class PagesController extends Controller
     
     public function index(){
         
-        $products= Product::orderby('id','desc')->paginate(1);
+        $products= Product::orderby('id','desc')->paginate(10);
         return view('frontend.pages.index',compact('products'));
     }
     
@@ -22,5 +22,19 @@ class PagesController extends Controller
         return view('frontend.pages.contact');
     }
     
+     public function search(Request $request)
+    {
+      $search = $request->search;
+
+        $products = Product::orWhere('title', 'like', '%'.$search.'%')
+        ->orWhere('description', 'like', '%'.$search.'%')
+        ->orWhere('slug', 'like', '%'.$search.'%')
+        ->orWhere('price', 'like', '%'.$search.'%')
+        ->orWhere('quantity', 'like', '%'.$search.'%')
+        ->orderBy('id', 'desc')
+        ->paginate(9);
+
+        return view('frontend.pages.product.search', compact('search', 'products'));
+    }
     
 }
